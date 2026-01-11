@@ -1,17 +1,14 @@
 from pydantic import BaseModel
-from typing import Optional
-from datetime import datetime
+from typing import Literal
 
 
 class OccupancyUpdate(BaseModel):
     bus_id: str
-    event_type: str   # "IN" or "OUT"
+    event_type: Literal["IN", "OUT"]
     occupancy_count: int
-    timestamp: Optional[datetime] = None
 
 
 class GPSUpdate(BaseModel):
     bus_id: str
     latitude: float
     longitude: float
-    timestamp: Optional[datetime] = None
