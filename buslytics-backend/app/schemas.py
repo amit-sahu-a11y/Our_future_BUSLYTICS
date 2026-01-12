@@ -12,3 +12,14 @@ class GPSUpdate(BaseModel):
     bus_id: str
     latitude: float
     longitude: float
+
+# class GPSUpdate(BaseModel):
+#     bus_id: str
+
+#     @validator("bus_id")
+#     def normalize_bus_id(cls, v):
+#         return v.upper()
+#     latitude: float
+#     longitude: float
+
+

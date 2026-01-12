@@ -19,3 +19,4 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+print("DATABASE MODULE LOADED")
