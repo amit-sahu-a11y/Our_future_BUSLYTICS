@@ -111,3 +111,18 @@ def log_gps(db: Session, data: schemas.GPSUpdate):
             status_code=500,
             detail=str(e)
         )
+def get_bus_state(db: Session, bus_id: str):
+    return db.query(models.CurrentBusState).filter(
+        models.CurrentBusState.bus_id == bus_id
+    ).first()
+
+def get_occupancy_history(db: Session, bus_id: str):
+    return db.query(models.OccupancyLog).filter(
+        models.OccupancyLog.bus_id == bus_id
+    ).order_by(models.OccupancyLog.timestamp.desc()).all()
+
+def get_latest_gps(db: Session, bus_id: str):
+    return db.query(models.GPSLog).filter(
+        models.GPSLog.bus_id == bus_id
+    ).order_by(models.GPSLog.timestamp.desc()).first()
+
