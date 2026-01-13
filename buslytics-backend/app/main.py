@@ -5,8 +5,6 @@ from sqlalchemy.orm import Session
 
 from .database import SessionLocal, engine, Base
 from . import schemas, crud  # ✅ schemas imported correctly
-
-# ✅ THIS IS THE ONLY CORRECT TABLE CREATION
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="BUSLYTICS Backend")
