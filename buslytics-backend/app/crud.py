@@ -5,6 +5,7 @@ from fastapi import HTTPException
 from app import models, schemas
 
 
+# yw
 # =========================
 # OCCUPANCY LOGIC
 # =========================
