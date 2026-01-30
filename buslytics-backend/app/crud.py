@@ -8,6 +8,9 @@ from app import models, schemas
 # =========================
 # OCCUPANCY LOGIC
 # =========================
+
+
+
 def log_occupancy(db: Session, data: schemas.OccupancyUpdate):
 
     if data.occupancy_count < 0:
@@ -125,4 +128,5 @@ def get_latest_gps(db: Session, bus_id: str):
     return db.query(models.GPSLog).filter(
         models.GPSLog.bus_id == bus_id
     ).order_by(models.GPSLog.timestamp.desc()).first()
+
 
